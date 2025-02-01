@@ -1,16 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {Text, View} from 'react-native';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions,
-} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-
-export const STACK_SCREEN_OPTIONS: NativeStackNavigationOptions = {
-  headerTitleAlign: 'center',
-  headerTitle: () => <Text style={{fontWeight:'bold', fontSize:25}}>ACME</Text>,
-};
 
 function HomeScreen() {
   return (
@@ -22,7 +14,7 @@ function HomeScreen() {
 
 const TopTab = createMaterialTopTabNavigator();
 
-function StartScreen() {
+function ScreenWithTopTabs() {
   return (
     <TopTab.Navigator initialRouteName="Screen1">
         <TopTab.Screen
@@ -41,7 +33,10 @@ const RootStack = createNativeStackNavigator();
 function Root() {
   return (
     <RootStack.Navigator>
-      <RootStack.Screen name="Start" options={STACK_SCREEN_OPTIONS} component={StartScreen}/>
+      <RootStack.Screen name="TopTabsScreen" options={{
+        headerTitleAlign: 'center',
+        headerTitle: () => <Text style={{fontWeight:'bold', fontSize:25}}>ACME</Text>,
+      }} component={ScreenWithTopTabs}/>
     </RootStack.Navigator>
   );
 }
