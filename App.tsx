@@ -24,10 +24,7 @@ function Root() {
   return (
     <RootStack.Navigator>
       <RootStack.Screen name="HomeScreen" options={{
-        headerStyle: {
-          backgroundColor: '#faa',
-        },
-        headerTitle: () => <Text style={{fontSize:25, fontWeight:'bold',fontStyle:'italic'}}>Home</Text>,
+        headerTitle: () => <Text style={{fontWeight: 'bold', fontSize:30}}>Bla</Text>
       }} component={HomeScreen}/>
     </RootStack.Navigator>
   );
